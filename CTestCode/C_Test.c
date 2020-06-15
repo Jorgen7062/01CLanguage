@@ -5,13 +5,15 @@ void Array_Test(void);
 void Const_Test(void);
 void Macro_vs_Enum(void);
 void FormatEffector_Test(void);
-void ComplementalCode_Test(void); 
+void ComplementalCode_Test(void);
+void Sharp_Test(void);
 
 
 int main()
 {
 	//Struct_Test();
 	Array_Test();
+	//Sharp_Test();
 	
 	return 0;
 }
@@ -143,6 +145,38 @@ void ComplementalCode_Test(void)
 	getchar();
 }
 
+
+#define P(A) 		printf("%s:%d\n",#A,A);
+#define P_char(A) 	printf("%s\n",#A);
+#define SQR(x) 		printf("The square of "#x" is %d.\n", ((x)*(x)));
+#define XNAME(n) 	(x##n)
+#define _P_char(A)	P_char(A)
+
+#define f(x,y) x##y 
+#define g(a) #a  
+#define h(a) g(a)  /*此宏定义中，无“# ”运算符在其中，故  h(    f(1,2)    ) 中，f(1,2)先执行，之后再执行其运算结果  #12*/ 
+
+void Sharp_Test(void)
+{
+	int a = 1, b = 2;
+	P(a);
+	P(b);
+	P(a+b);
+	
+	P_char(a);
+	P_char(XNAME(5));
+	_P_char(XNAME(5));
+		
+	SQR(8);
+
+	printf("\n%s\n", g(    f(1,2)    )    );  	//#  f(1,2)
+	printf("%s\n", g(  ( f(1,2) )  )    );  	//#( f(1,2) )	
+	printf("%s\n", h(    f(1,2)    )    );  	//1##2	 	--> 	#(1##2)
+	
+//	printf("%s:%d\n",#a,a); //非法 
+//	printf("%s\n", #a);		//非法	
+	system("pause");
+}
 
 
 
