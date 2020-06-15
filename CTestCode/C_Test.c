@@ -12,8 +12,9 @@ void Sharp_Test(void);
 int main()
 {
 	//Struct_Test();
-	Array_Test();
+	//Array_Test();
 	//Sharp_Test();
+	FormatEffector_Test();
 	
 	return 0;
 }
@@ -111,15 +112,26 @@ void Macro_vs_Enum(void)
 
 void FormatEffector_Test(void)
 {
-	float a, b;
+	int a1, a2, a3;
+	float b;
+	
+	a1 = 0b101;		//OK  二进制赋值 
+//	a2 = 010; 		//8 octal   int  = 8
+	a2 = '\123'; 	//8 octal   123 = 83 (8 + 2*8 + 3 = 83)	
+	a3 = 0x11;
+	
+		
 	b = 25.5;
-//	a = '\123'; 	//8 octal   123 = 83 (8 + 2*8 + 3 = 83)
-	a = 010; 		//8 octal   int  = 8
-//	a = -1;
-//	a = 1.0/7*4;
-	printf("a = %d\n",a);
+
+	printf("这是二进制 0b101 用十进制表示的数值:%d\n",a1);
+	printf("这是八进制 010 用十进制表示的数值:%d\n",a2);
+	printf("这是十六进制 0x11 用十进制表示的数值:%d\n",a3);	
+	printf("b = %%f %f\n",b);
+	printf("b = %%g %g\n",b);	//%g：不显示不必要的 0 
+
+
 //	printf("a = %u\n",a); //u无符号形式输出 
-	printf("b = %g\n",b);
+
 
 //	printf("%d\noooooooo\tbbb\a\rcccc", a=b);
 	printf("%d  abc\n",377);
