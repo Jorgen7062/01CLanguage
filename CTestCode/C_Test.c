@@ -7,15 +7,25 @@ void Macro_vs_Enum(void);
 void FormatEffector_Test(void);
 void ComplementalCode_Test(void);
 void Sharp_Test(void);
+int * Return_P_Test(void);
 
 
 int main()
 {
-	//Struct_Test();
-	//Array_Test();
-	//Sharp_Test();
-	FormatEffector_Test();
+//	Struct_Test();
+//	Array_Test();
+//	Sharp_Test();
+//	FormatEffector_Test();
+//	Const_Test();
 	
+//	int * p_int_a;
+//	p_int_a = Return_P_Test();
+//	printf("*p_int_a = %d\n", *p_int_a);
+	
+
+	printf("按回车键结束程序...\n");	
+	getchar();
+
 	return 0;
 }
 
@@ -23,12 +33,12 @@ void Struct_Test(void)
 {
 	typedef struct 
 	{
-		int 	i;		
-		char 	c;
-		char 	c2;
-		char	c3;
-		char 	c4;		
-		short 	s;	
+		int 	int_a;		
+		char 	char_a1;
+		char 	char_a2;
+		char	char_a3;
+		char 	char_a4;		
+		short 	short_a;	
 	} ST_SIZE;
 	
 	ST_SIZE st1;
@@ -59,11 +69,14 @@ void Array_Test(void)
 void Const_Test(void)
 {
 	const int a = 2018;
-	int *p = (int *)&a;
-//	p = (int *)&a;
+	int *p; // = (int *)&a;
+//	p = &a;
+	p = (int *)&a;
 	*p = 2019;
 	printf("%d\n",a);
-	
+//	a = 2020;
+	printf("%d\n",a);
+		
 	return;
 }
 
@@ -106,44 +119,56 @@ void Macro_vs_Enum(void)
 		printf("test00 == test01\n");  
 	#endif
 	
-		return;
+	return;
 }
 
 
 void FormatEffector_Test(void)
 {
-	int int_a1, int_a2, int_a3;
-	int int_b1 = 1, int_b2 = 1;
-	
-	char char_a1 = -4;
-	
-	float f_b1;
+	int  	int_a1, 		int_a2, 		int_a3;
+	int  	int_b1 = 1, 	int_b2 = 2;
+	int  	int_p  = 100;
+	char  	char_a1 = -4;
+	float 	f_a1 = 25.0;
 	
 	int_a1 = 0b1111;		//2进制赋值 
 	int_a2 = 010; 			//8进制赋值 1
 //	int_a2 = '\123'; 		//8进制赋值 2   123 = 83 (8 + 2*8 + 3 = 83)	
 	int_a3 = 0x11;			//16进制赋值
-
-	f_b1 = 25.5;
 	
 	printf("这是二进制 0b101 用十进制表示的数值:%d\n",int_a1);
 	printf("这是八进制 010 用十进制表示的数值:%d\n",int_a2);
-	printf("这是十六进制 0x11 用十进制表示的数值:%d\n",int_a3);	
-	printf("\n");
-	printf("16进制格式控制符\n");
+	printf("这是十六进制 0x11 用十进制表示的数值:%d\n",int_a3);
+	
+	printf("\n （int_b1=int_b2）输出int_b2的值：  %d \n", int_b1 = int_b2);
+		
+	printf("\n8进制格式控制符\n");	
+	printf("八进制整数前不加0 %%o %o\n", 123);
+    printf("八进制整数前加上0 %%#o %#o\n", 123);
+
+	printf("\n16进制格式控制符\n");
 	printf("%%x：%x\n",int_a1);		
 	printf("%%X：%X\n",int_a1);
 	printf("%%#x：%#x\n",int_a1);		
 	printf("%%#X：%#X\n",int_a1);	
-	printf("\n");
-	printf("浮点数格式控制符\n");	
-	printf("%%f:%f\n",f_b1);
-	printf("%%g:%g\n",f_b1);	//%g：不显示不必要的 0 
-	printf("\n");
-	printf("%%u:%u\n",char_a1); //u无符号形式输出 
-	printf("\n");
-	printf("%d aaa \t bbb \a ccc \r", int_b1=int_b1);
-	printf("\n");
+
+	printf("\n浮点数格式控制符\n");	
+	printf("%%f:%f\n",f_a1);
+	printf("不显示不必要的 0 %%g:%g\n",f_a1);
+	printf("%%#f:%#f\n",f_a1);
+	printf("%%#g:%#g\n",f_a1);		
+    printf("%%x.yf  x位整数  y位小数 %2.2f\n", 1.08);
+    printf("浮点数一定使用小数点%%#.0f  %#.0f\n", 1.08);
+
+    printf("\n指针:%%p\n");
+    printf("变量的地址 int_p 指针:%%p : %p\n",  int_p);	
+    printf("地址的地址&int_p 指针:%%p : %p\n", &int_p);	
+    
+    printf("\n 无符号形式输出%%u : %u\n", char_a1);
+	printf("\n 制表\\t *\t* 响铃\\a \a  	回车\\r \r \n");
+    printf("\n 百分号%%%% : %%\n");
+    printf("\n 字符0x33 %%c: %c\n", 0x33);
+    printf("\n 字符串:%%s %s\n", "hello");
 
 	return;
 }
@@ -198,6 +223,21 @@ void Sharp_Test(void)
 //	printf("%s\n", #a);		//非法	
 //	system("pause");
 }
+
+/*函数局部变量返回测试  局部变量  VS 局部变量指针*/ 
+int * Return_P_Test(void)
+{	
+	int int_a = 2020;
+	int * int_ap;
+	
+	int_ap = &int_a;
+	
+	printf("可以通过 *指针变量* 返回 *局部变量* 的地址\n");
+	printf("不可以直接返回 *局部变量* &（变量） 的地址\n");
+	//return int_a;
+	//return int_ap;
+	//return &int_a;
+} 
 
 
 
