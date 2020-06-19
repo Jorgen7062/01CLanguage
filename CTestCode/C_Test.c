@@ -8,6 +8,7 @@ void FormatEffector_Test(void);
 void ComplementalCode_Test(void);
 void Sharp_Test(void);
 int * Return_P_Test(void);
+void Data_type_conversion(void);
 
 
 int main()
@@ -238,6 +239,30 @@ int * Return_P_Test(void)
 	//return int_ap;
 	//return &int_a;
 } 
+
+void Data_type_conversion(void)
+{
+	char 			char_a = -18,		char_b = 18;
+	unsigned char 	uchar_a = -19, 		uchar_b = 19;
+	short 			short_a = -17,		short_b = 17;
+	
+	printf("char_a = -18	%#x\n",	char_a);
+	printf("char_b = 18 	%#x\n",	char_b);
+	
+	printf("\nuchar_a = -19	%#x\n",	uchar_a);
+	printf("uchar_b = 19 	%#x\n",	uchar_b);
+		
+	printf("\nshort_a  = -17	%#x\n",	short_a);
+	printf("short_b  =  17	%#x\n",	short_b);	
+
+	uchar_a = short_a;
+	printf("\nuchar_a = short_a;	%#d\n",	uchar_a);	
+	
+	char_a  = short_a;
+	printf("\nchar_a  = short_a;	%#d\n",	char_a);
+	
+	return;	
+}
 
 
 
