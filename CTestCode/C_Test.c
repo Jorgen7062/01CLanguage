@@ -7,15 +7,25 @@ void Macro_vs_Enum(void);
 void FormatEffector_Test(void);
 void ComplementalCode_Test(void);
 void Sharp_Test(void);
+int * Return_P_Test(void);
 
 
 int main()
 {
-	//Struct_Test();
-	//Array_Test();
-	//Sharp_Test();
-	FormatEffector_Test();
+//	Struct_Test();
+//	Array_Test();
+//	Sharp_Test();
+//	FormatEffector_Test();
+//	Const_Test();
 	
+//	int * p_int_a;
+//	p_int_a = Return_P_Test();
+//	printf("*p_int_a = %d\n", *p_int_a);
+	
+
+	printf("按回车键结束程序...\n");	
+	getchar();
+
 	return 0;
 }
 
@@ -23,12 +33,12 @@ void Struct_Test(void)
 {
 	typedef struct 
 	{
-		int 	i;		
-		char 	c;
-		char 	c2;
-		char	c3;
-		char 	c4;		
-		short 	s;	
+		int 	int_a;		
+		char 	char_a1;
+		char 	char_a2;
+		char	char_a3;
+		char 	char_a4;		
+		short 	short_a;	
 	} ST_SIZE;
 	
 	ST_SIZE st1;
@@ -59,11 +69,14 @@ void Array_Test(void)
 void Const_Test(void)
 {
 	const int a = 2018;
-	int *p = (int *)&a;
-//	p = (int *)&a;
+	int *p; // = (int *)&a;
+//	p = &a;
+	p = (int *)&a;
 	*p = 2019;
 	printf("%d\n",a);
-	
+//	a = 2020;
+	printf("%d\n",a);
+		
 	return;
 }
 
@@ -210,6 +223,21 @@ void Sharp_Test(void)
 //	printf("%s\n", #a);		//非法	
 	system("pause");
 }
+
+/*函数局部变量返回测试  局部变量  VS 局部变量指针*/ 
+int * Return_P_Test(void)
+{	
+	int int_a = 2020;
+	int * int_ap;
+	
+	int_ap = &int_a;
+	
+	printf("可以通过 *指针变量* 返回 *局部变量* 的地址\n");
+	printf("不可以直接返回 *局部变量* &（变量） 的地址\n");
+	//return int_a;
+	//return int_ap;
+	//return &int_a;
+} 
 
 
 
