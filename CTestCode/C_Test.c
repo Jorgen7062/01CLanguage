@@ -106,44 +106,56 @@ void Macro_vs_Enum(void)
 		printf("test00 == test01\n");  
 	#endif
 	
-		return;
+	return;
 }
 
 
 void FormatEffector_Test(void)
 {
-	int int_a1, int_a2, int_a3;
-	int int_b1 = 1, int_b2 = 1;
-	
-	char char_a1 = -4;
-	
-	float f_b1;
+	int  	int_a1, 		int_a2, 		int_a3;
+	int  	int_b1 = 1, 	int_b2 = 2;
+	int  	int_p  = 100;
+	char  	char_a1 = -4;
+	float 	f_a1 = 25.0;
 	
 	int_a1 = 0b1111;		//2进制赋值 
 	int_a2 = 010; 			//8进制赋值 1
 //	int_a2 = '\123'; 		//8进制赋值 2   123 = 83 (8 + 2*8 + 3 = 83)	
 	int_a3 = 0x11;			//16进制赋值
-
-	f_b1 = 25.5;
 	
 	printf("这是二进制 0b101 用十进制表示的数值:%d\n",int_a1);
 	printf("这是八进制 010 用十进制表示的数值:%d\n",int_a2);
-	printf("这是十六进制 0x11 用十进制表示的数值:%d\n",int_a3);	
-	printf("\n");
-	printf("16进制格式控制符\n");
+	printf("这是十六进制 0x11 用十进制表示的数值:%d\n",int_a3);
+	
+	printf("\n （int_b1=int_b2）输出int_b2的值：  %d \n", int_b1 = int_b2);
+		
+	printf("\n8进制格式控制符\n");	
+	printf("八进制整数前不加0 %%o %o\n", 123);
+    printf("八进制整数前加上0 %%#o %#o\n", 123);
+
+	printf("\n16进制格式控制符\n");
 	printf("%%x：%x\n",int_a1);		
 	printf("%%X：%X\n",int_a1);
 	printf("%%#x：%#x\n",int_a1);		
 	printf("%%#X：%#X\n",int_a1);	
-	printf("\n");
-	printf("浮点数格式控制符\n");	
-	printf("%%f:%f\n",f_b1);
-	printf("%%g:%g\n",f_b1);	//%g：不显示不必要的 0 
-	printf("\n");
-	printf("%%u:%u\n",char_a1); //u无符号形式输出 
-	printf("\n");
-	printf("%d aaa \t bbb \a ccc \r", int_b1=int_b1);
-	printf("\n");
+
+	printf("\n浮点数格式控制符\n");	
+	printf("%%f:%f\n",f_a1);
+	printf("不显示不必要的 0 %%g:%g\n",f_a1);
+	printf("%%#f:%#f\n",f_a1);
+	printf("%%#g:%#g\n",f_a1);		
+    printf("%%x.yf  x位整数  y位小数 %2.2f\n", 1.08);
+    printf("浮点数一定使用小数点%%#.0f  %#.0f\n", 1.08);
+
+    printf("\n指针:%%p\n");
+    printf("变量的地址 int_p 指针:%%p : %p\n",  int_p);	
+    printf("地址的地址&int_p 指针:%%p : %p\n", &int_p);	
+    
+    printf("\n 无符号形式输出%%u : %u\n", char_a1);
+	printf("\n 制表\\t *\t* 响铃\\a \a  	回车\\r \r \n");
+    printf("\n 百分号%%%% : %%\n");
+    printf("\n 字符0x33 %%c: %c\n", 0x33);
+    printf("\n 字符串:%%s %s\n", "hello");
 
 	return;
 }
