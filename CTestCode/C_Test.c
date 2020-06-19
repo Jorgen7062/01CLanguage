@@ -196,7 +196,7 @@ void Sharp_Test(void)
 	
 //	printf("%s:%d\n",#a,a); //非法 
 //	printf("%s\n", #a);		//非法	
-	system("pause");
+//	system("pause");
 }
 
 
