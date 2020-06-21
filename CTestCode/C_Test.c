@@ -1,7 +1,9 @@
+/*Head File*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/*Function Declaration*/
 void Struct_Test(void); 
 void Array_Test(void);
 void Const_Test(void);
@@ -13,7 +15,7 @@ int * Return_P_Test(void);
 void DataType_Conversion(void);
 void ShortArrary_2_CharArrary(void); 
 
-
+/*Function*/
 int main()
 {
 //	Struct_Test();
@@ -26,7 +28,7 @@ int main()
 //	p_int_a = Return_P_Test();
 //	printf("*p_int_a = %d\n", *p_int_a);
 	
-
+	printf("Hello Word!\n");
 	printf("按回车键结束程序...\n");	
 	getchar();
 
@@ -287,7 +289,7 @@ void ShortArrary_2_CharArrary(void)
 	printf("sizeof short_arrary[4]  = %d\n",		sizeof(short_arrary)); 	//out 8
 	printf("sizeof char_arrary[4]   = %d\n",	sizeof(char_arrary)); 	//out 4
 
-	printf("\nstrlen short_arrary[4] 	= %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
+	//printf("\nstrlen short_arrary[4] 	= %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
 	printf("strlen char_arrary[4]    = %d\n",	strlen(char_arrary));	//out 3
 
 	printf("\n((char*) short_arrary)[1] : %#x		%p\n",		((char*) short_arrary)[1], &((char*) short_arrary)[1]);	//out: ox0  (little endian) 
