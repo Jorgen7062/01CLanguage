@@ -14,6 +14,7 @@ void Sharp_Test(void);
 int * Return_P_Test(void);
 void DataType_Conversion(void);
 void ShortArrary_2_CharArrary(void); 
+void Null_Test(void); 
 
 /*Function*/
 int main()
@@ -27,7 +28,9 @@ int main()
 //	int * p_int_a;
 //	p_int_a = Return_P_Test();
 //	printf("*p_int_a = %d\n", *p_int_a);
-	
+
+	Null_Test();
+	 	
 	printf("Hello Word!\n");
 	printf("按回车键结束程序...\n");	
 	getchar();
@@ -299,5 +302,22 @@ void ShortArrary_2_CharArrary(void)
 
 	return;
 }
+
+void Null_Test(void)
+{
+	char *p = NULL;
+	char char_temp; 
+	
+	char_temp = *p; 							//对0地址直接读取数据中断了当前程序的执行 
+	
+	printf("变量的地址 p 指针:%%p : %p\n",  p);
+	
+	printf("Location 0 contains %d\n", *p);		//没有打印该地址的数据 
+	
+	printf("char_temp = *p; %d\n", char_temp);
+	
+	return;
+}
+
 
 
