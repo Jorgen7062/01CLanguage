@@ -330,11 +330,11 @@ void Null_Test(void)
 
 void Setjmp_Test(void)
 {
-	switch(setjmp(jmp_buf_a0))
+	switch(setjmp(jmp_buf_a0))	/*setjmp(jmp_buf_a0) 执行后，返回值为 0 */
 	{
 		case 0:
 			printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 0;\n");
-			Longjmp_Test();
+			Longjmp_Test();		
 			break;
 			
 		case 1:
@@ -350,16 +350,6 @@ void Setjmp_Test(void)
 			break;	
 	}
 	
-//	if(setjmp(jmp_buf_a0))
-//	{
-//		printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) != 0;\n");
-//	}
-//	else
-//	{
-//		printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 0;\n");
-//		Longjmp_Test();
-//	}
-	
 	return;
 } 
 
@@ -367,9 +357,9 @@ void Longjmp_Test(void)
 {
 	printf("in Longjmp_Test(void) Before longjmp(jmp_buf_a0, 1);\n");
 	
-	longjmp(jmp_buf_a0, 2);
+	longjmp(jmp_buf_a0, 2);	/*参数x 为longjmp(jmp_buf_a0, x); 返回参数     返回 setjmp(jmp_buf_a0) 处*/ 
 	
-	printf("in Longjmp_Test(void) After longjmp(jmp_buf_a0, 1);\n");
+	printf("in Longjmp_Test(void) After longjmp(jmp_buf_a0, 1);\n");	/*该行不会被执行*/ 
 	
 	return;
 }
