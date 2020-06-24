@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <setjmp.h>
+
+/*Global Variables*/ 
+jmp_buf jmp_buf_a0;
 
 /*Function Declaration*/
 void Struct_Test(void); 
@@ -14,7 +18,10 @@ void Sharp_Test(void);
 int * Return_P_Test(void);
 void DataType_Conversion(void);
 void ShortArrary_2_CharArrary(void); 
-void Null_Test(void); 
+void Null_Test(void);
+ 
+void Setjmp_Test(void);
+void Longjmp_Test(void); 
 
 /*Function*/
 int main()
@@ -29,9 +36,11 @@ int main()
 //	p_int_a = Return_P_Test();
 //	printf("*p_int_a = %d\n", *p_int_a);
 
-	Null_Test();
+//	Null_Test();
+
+	Setjmp_Test();
 	 	
-	printf("Hello Word!\n");
+//	printf("Hello Word!\n");
 	printf("按回车键结束程序...\n");	
 	getchar();
 
@@ -315,6 +324,52 @@ void Null_Test(void)
 	printf("Location 0 contains %d\n", *p);		//没有打印该地址的数据 
 	
 	printf("char_temp = *p; %d\n", char_temp);
+	
+	return;
+}
+
+void Setjmp_Test(void)
+{
+	switch(setjmp(jmp_buf_a0))
+	{
+		case 0:
+			printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 0;\n");
+			Longjmp_Test();
+			break;
+			
+		case 1:
+			printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 1;\n");
+			break;
+			
+		case 2:
+			printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 2;\n");
+			break;
+		
+		default:
+			printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == default;\n");
+			break;	
+	}
+	
+//	if(setjmp(jmp_buf_a0))
+//	{
+//		printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) != 0;\n");
+//	}
+//	else
+//	{
+//		printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 0;\n");
+//		Longjmp_Test();
+//	}
+	
+	return;
+} 
+
+void Longjmp_Test(void)
+{
+	printf("in Longjmp_Test(void) Before longjmp(jmp_buf_a0, 1);\n");
+	
+	longjmp(jmp_buf_a0, 2);
+	
+	printf("in Longjmp_Test(void) After longjmp(jmp_buf_a0, 1);\n");
 	
 	return;
 }
