@@ -27,7 +27,7 @@ void Longjmp_Test(void);
 int main()
 {
 //	Struct_Test();
-//	Array_Test();
+	Array_Test();
 //	Sharp_Test();
 //	FormatEffector_Test();
 //	Const_Test();
@@ -38,7 +38,7 @@ int main()
 
 //	Null_Test();
 
-	Setjmp_Test();
+//	Setjmp_Test();
 	 	
 //	printf("Hello Word!\n");
 	printf("按回车键结束程序...\n");	
@@ -66,8 +66,29 @@ void Struct_Test(void)
 
 void Array_Test(void)
 {
+	char sub_value = 0;
+	typedef struct 
+	{	
+		char 	char_a1;
+		char 	char_a2;
+		char	char_a3;
+		char 	char_a4;
+
+					
+	} ST_SIZE;
+	
+	ST_SIZE array[8];
+	ST_SIZE * array_0 = &array[0];
+	ST_SIZE * array_4 = &array[2];
+	
+	sub_value = (char)(array_4 - array_0);
+	
 	char ch_array[2][3] = {1,2,3,4,5,6};
 	int  int_array[2][3] = {7,8,9,10,11,12};
+	
+	printf("***********array_0 = %p\n\n", array_0);
+	printf("***********array_4 = %p\n\n", array_4);
+	printf("***********sub_value = %d\n\n", sub_value);
 	
 	printf("ch_array[2][3]\n");
 	printf("place of ch_array		%p\n", ch_array);
