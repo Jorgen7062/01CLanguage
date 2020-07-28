@@ -7,6 +7,27 @@
 /*Global Variables*/ 
 jmp_buf jmp_buf_a0;
 
+typedef union
+{
+	unsigned char c_data[2];
+	struct struct_union
+	{
+		unsigned char 	char0	:1;
+		unsigned char 	char1	:1;		
+		unsigned char 	char2	:1;
+		unsigned char 	char3	:1;
+		unsigned char	char4	:1;
+		unsigned char 	char5	:1;
+		unsigned char 	char6	:1;		
+		unsigned char 	char7	:1;
+		unsigned char 	char00  :1;
+		unsigned char	char01  :1;
+		unsigned char 	char02  :1;			
+	}struct_union;	
+}UNION_ST;
+
+UNION_ST Union_1 ;
+
 /*Function Declaration*/
 void Struct_Test(void); 
 void Array_Test(void);
@@ -23,11 +44,14 @@ void Null_Test(void);
 void Setjmp_Test(void);
 void Longjmp_Test(void); 
 
+
+
+
 /*Function*/
 int main()
 {
-//	Struct_Test();
-	Array_Test();
+	Struct_Test();
+//	Array_Test();
 //	Sharp_Test();
 //	FormatEffector_Test();
 //	Const_Test();
@@ -60,8 +84,22 @@ void Struct_Test(void)
 	} ST_SIZE;
 	
 	ST_SIZE st1;
+	UNION_ST Union_2 ;
 	
-	printf("size of st1 = %d",sizeof(st1));		
+//	Union_2.c_data[0] = 0x00;
+//	Union_2.c_data[1] = 0xFF;
+
+	printf("Union_1.c_data[0] = %d\n",Union_1.c_data[0]);
+	printf("Union_1.c_data[1] = %d\n\n",Union_1.c_data[1]);
+		
+	printf("Union_2.c_data[0] = %d\n",Union_2.c_data[0]);
+	printf("Union_2.c_data[1] = %d\n\n",Union_2.c_data[1]);
+	
+	Union_1.struct_union.char0 = 1;
+	
+	//printf("size of st1 = %d",sizeof(st1));	
+	printf("Union_1.c_data[0] = %d\n",Union_1.c_data[0]);		
+	printf("Union_1.c_data[1] = %d\n",Union_1.c_data[1]);
 }
 
 void Array_Test(void)
