@@ -50,7 +50,7 @@ void Longjmp_Test(void);
 /*Function*/
 int main()
 {
-	Struct_Test();
+//	Struct_Test();
 //	Array_Test();
 //	Sharp_Test();
 //	FormatEffector_Test();
@@ -59,7 +59,7 @@ int main()
 //	int * p_int_a;
 //	p_int_a = Return_P_Test();
 //	printf("*p_int_a = %d\n", *p_int_a);
-
+	ShortArrary_2_CharArrary(); 
 //	Null_Test();
 
 //	Setjmp_Test();
@@ -352,16 +352,26 @@ void ShortArrary_2_CharArrary(void)
 {
 	//int int_arrary[8] = {0};
 	short short_arrary[4] = {0x1011, 	0x2233, 	0x4455, 	0x6677};
-	char  char_arrary[4]  = {0xAA, 		0xBB,		0xCC,		0xDD};
-
+	char  char_arrary[4]  = {0xAA, 		0xBB,		0xCC};
+	char  * char_arrary_p  = {0xAA, 		0xBB,		0xCC,	0xDD,	0xEE}; //此处有警告， 
+	char  * char_arrary_q; 
+	int   * int_p;
+	
 	printf("short_arrary[4] = {0x0011, 	0x2233, 	0x4455, 	0x6677};\n");
-	printf("char_arrary[4]  = {0xAA, 	0xBB,		0xCC};		\n\n");
+	printf("char_arrary[4]  = {0xAA, 	0xBB,		0xCC};		\n");
+	printf("const char  * char_arrary_p  = {0xAA, 		0xBB,		0xCC,	0xDD,	0xEE};\n\n");
 
-	printf("sizeof short_arrary[4]  = %d\n",		sizeof(short_arrary)); 	//out 8
+	printf("sizeof short_arrary[4]  = %d\n\n",		sizeof(short_arrary)); 	//out 8
+	
 	printf("sizeof char_arrary[4]   = %d\n",	sizeof(char_arrary)); 	//out 4
-
 	//printf("\nstrlen short_arrary[4] 	= %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
-	printf("strlen char_arrary[4]    = %d\n",	strlen(char_arrary));	//out 3
+	printf("strlen char_arrary[4]    = %d\n\n",	strlen(char_arrary));	//out 3
+	
+	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p)); 	//out 4
+	printf("sizeof char_arrary_q   = %d\n",	sizeof(char_arrary_q)); 	//out 4
+	printf("sizeof int_p   = %d\n",	sizeof(int_p)); 	//out 4	
+	printf("strlen char_arrary_p   = %d\n",	strlen(char_arrary));	//out 3	
+	
 
 	printf("\n((char*) short_arrary)[1] : %#x		%p\n",		((char*) short_arrary)[1], &((char*) short_arrary)[1]);	//out: ox0  (little endian) 
 	printf("((char*) short_arrary)[0] : %#x		%p\n",		((char*) short_arrary)[0], &((char*) short_arrary)[0]);	//out: ox11  (little endian) 
