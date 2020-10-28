@@ -40,7 +40,6 @@ int * Return_P_Test(void);
 void DataType_Conversion(void);
 void ShortArrary_2_CharArrary(void); 
 void Null_Test(void);
- 
 void Setjmp_Test(void);
 void Longjmp_Test(void); 
 
@@ -353,20 +352,25 @@ void ShortArrary_2_CharArrary(void)
 {
 	short short_arrary[4] = {0x1011, 	0x2233, 	0x4455, 	0x6677};
 	char  char_arrary[4]  = {0xAA, 		0xBB,		0xCC};
-	char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};  //初始化指针时可以直接对指针赋常数值吗？ 赋数组元素值吗//{0xAA, 		0xBB,		0xCC,	0xDD,	0xEE}; //此处有警告， 
+	//这种赋值方式不正确，之后执行到包含该指针的语句时，程序会断开
+	//char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};
 	char  * char_arrary_q;
 	int   * int_p;
 
+//	printf("sizeof char_arrary_p[0] = %d\n",	*char_arrary_p);	//不能通过这种方式来输出值
+//	printf("sizeof char_arrary_p[1] = %d\n",	char_arrary_p[1]);	//不能通过这种方式来输出值
+	
+
 	printf("sizeof short_arrary[4] = %d\n",	sizeof(short_arrary)); 	//out 8
 	printf("sizeof char_arrary[4]  = %d\n",	sizeof(char_arrary)); 	//out 4
-	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p)); //out 8
+//	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p)); //out 8
 	printf("sizeof char_arrary_q   = %d\n",	sizeof(char_arrary_q)); //out 8
 	printf("sizeof int_p   = %d\n",			sizeof(int_p)); 		//out 8	
 	printf("\n");
 	printf("strlen以\\0之前的字节数\n");
 	printf("strlen short_arrary[4] = %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
 	printf("strlen char_arrary[4]  = %d\n",	strlen(char_arrary));	//out 3	
-	printf("strlen char_arrary_p   = %d\n",	strlen(char_arrary_p));	//out 3
+//	printf("strlen char_arrary_p   = %d\n",	strlen(char_arrary_p));	//out 3
 	printf("strlen char_arrary_q   = %d\n",	strlen(char_arrary_q));	//out 3	
 	printf("strlen int_p   		   = %d\n",	strlen(int_p));			//out 3	
 	printf("\n");
