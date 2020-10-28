@@ -79,7 +79,8 @@ void Struct_Test(void)
 		char 	char_a1;
 		char 	char_a2;
 		char	char_a3;
-		char 	char_a4;		
+		char 	char_a4;
+		//char 	char_a;
 		short 	short_a;	
 	} ST_SIZE;
 	
@@ -97,7 +98,7 @@ void Struct_Test(void)
 	
 	Union_1.struct_union.char0 = 1;
 	
-	//printf("size of st1 = %d",sizeof(st1));	
+	printf("size of st1 = %d\n",sizeof(st1));	
 	printf("Union_1.c_data[0] = %d\n",Union_1.c_data[0]);		
 	printf("Union_1.c_data[1] = %d\n",Union_1.c_data[1]);
 }
@@ -350,33 +351,28 @@ run this program using the console pauser or add your own getch, system("pause")
 */
 void ShortArrary_2_CharArrary(void) 
 {
-	//int int_arrary[8] = {0};
 	short short_arrary[4] = {0x1011, 	0x2233, 	0x4455, 	0x6677};
 	char  char_arrary[4]  = {0xAA, 		0xBB,		0xCC};
-	char  * char_arrary_p  = {0xAA, 		0xBB,		0xCC,	0xDD,	0xEE}; //此处有警告， 
-	char  * char_arrary_q; 
+	char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};  //初始化指针时可以直接对指针赋常数值吗？ 赋数组元素值吗//{0xAA, 		0xBB,		0xCC,	0xDD,	0xEE}; //此处有警告， 
+	char  * char_arrary_q;
 	int   * int_p;
-	
-	printf("short_arrary[4] = {0x0011, 	0x2233, 	0x4455, 	0x6677};\n");
-	printf("char_arrary[4]  = {0xAA, 	0xBB,		0xCC};		\n");
-	printf("const char  * char_arrary_p  = {0xAA, 		0xBB,		0xCC,	0xDD,	0xEE};\n\n");
 
-	printf("sizeof short_arrary[4]  = %d\n\n",		sizeof(short_arrary)); 	//out 8
-	
-	printf("sizeof char_arrary[4]   = %d\n",	sizeof(char_arrary)); 	//out 4
-	//printf("\nstrlen short_arrary[4] 	= %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
-	printf("strlen char_arrary[4]    = %d\n\n",	strlen(char_arrary));	//out 3
-	
-	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p)); 	//out 4
-	printf("sizeof char_arrary_q   = %d\n",	sizeof(char_arrary_q)); 	//out 4
-	printf("sizeof int_p   = %d\n",	sizeof(int_p)); 	//out 4	
-	printf("strlen char_arrary_p   = %d\n",	strlen(char_arrary));	//out 3	
-	
-
-	printf("\n((char*) short_arrary)[1] : %#x		%p\n",		((char*) short_arrary)[1], &((char*) short_arrary)[1]);	//out: ox0  (little endian) 
+	printf("sizeof short_arrary[4] = %d\n",	sizeof(short_arrary)); 	//out 8
+	printf("sizeof char_arrary[4]  = %d\n",	sizeof(char_arrary)); 	//out 4
+	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p)); //out 8
+	printf("sizeof char_arrary_q   = %d\n",	sizeof(char_arrary_q)); //out 8
+	printf("sizeof int_p   = %d\n",			sizeof(int_p)); 		//out 8	
+	printf("\n");
+	printf("strlen以\\0之前的字节数\n");
+	printf("strlen short_arrary[4] = %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
+	printf("strlen char_arrary[4]  = %d\n",	strlen(char_arrary));	//out 3	
+	printf("strlen char_arrary_p   = %d\n",	strlen(char_arrary_p));	//out 3
+	printf("strlen char_arrary_q   = %d\n",	strlen(char_arrary_q));	//out 3	
+	printf("strlen int_p   		   = %d\n",	strlen(int_p));			//out 3	
+	printf("\n");
+	printf("\n((char*) short_arrary)[1] : %#x	%p\n",		((char*) short_arrary)[1], &((char*) short_arrary)[1]);	//out: ox0  (little endian) 
 	printf("((char*) short_arrary)[0] : %#x		%p\n",		((char*) short_arrary)[0], &((char*) short_arrary)[0]);	//out: ox11  (little endian) 
-
-	printf("*(&((char *)&short_arrary[0])[7]) : %#x\n",*(&((char *)&short_arrary[0])[7])); //out: ox66 
+	printf("*(&((char *)&short_arrary[0])[7]) : %#x\n",		*(&((char *)&short_arrary[0])[7])); //out: ox66 
 
 	return;
 }
