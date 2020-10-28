@@ -352,18 +352,17 @@ void ShortArrary_2_CharArrary(void)
 {
 	short short_arrary[4] = {0x1011, 	0x2233, 	0x4455, 	0x6677};
 	char  char_arrary[4]  = {0xAA, 		0xBB,		0xCC};
-	//这种赋值方式不正确，之后执行到包含该指针的语句时，程序会断开
-	//char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};
+//	这种赋值方式不正确，之后执行到包含该指针的语句时，程序会断开
+//	char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};
 	char  * char_arrary_q;
 	int   * int_p;
 
 //	printf("sizeof char_arrary_p[0] = %d\n",	*char_arrary_p);	//不能通过这种方式来输出值
 //	printf("sizeof char_arrary_p[1] = %d\n",	char_arrary_p[1]);	//不能通过这种方式来输出值
 	
-
 	printf("sizeof short_arrary[4] = %d\n",	sizeof(short_arrary)); 	//out 8
 	printf("sizeof char_arrary[4]  = %d\n",	sizeof(char_arrary)); 	//out 4
-//	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p)); //out 8
+//	printf("sizeof char_arrary_p   = %d\n",	sizeof(char_arrary_p));
 	printf("sizeof char_arrary_q   = %d\n",	sizeof(char_arrary_q)); //out 8
 	printf("sizeof int_p   = %d\n",			sizeof(int_p)); 		//out 8	
 	printf("\n");
@@ -371,12 +370,12 @@ void ShortArrary_2_CharArrary(void)
 	printf("strlen short_arrary[4] = %d\n",	strlen(short_arrary));	//此处有警告 size_t strlen(const char *string);
 	printf("strlen char_arrary[4]  = %d\n",	strlen(char_arrary));	//out 3	
 //	printf("strlen char_arrary_p   = %d\n",	strlen(char_arrary_p));	//out 3
-	printf("strlen char_arrary_q   = %d\n",	strlen(char_arrary_q));	//out 3	
-	printf("strlen int_p   		   = %d\n",	strlen(int_p));			//out 3	
+//	printf("strlen char_arrary_q   = %d\n",	strlen(char_arrary_q));	//该语句中断以下程序的执行 
+//	printf("strlen int_p   		   = %d\n",	strlen(int_p));			//该语句中断以下程序的执行	此处有警告 size_t strlen(const char *string);
 	printf("\n");
-	printf("\n((char*) short_arrary)[1] : %#x	%p\n",		((char*) short_arrary)[1], &((char*) short_arrary)[1]);	//out: ox0  (little endian) 
-	printf("((char*) short_arrary)[0] : %#x		%p\n",		((char*) short_arrary)[0], &((char*) short_arrary)[0]);	//out: ox11  (little endian) 
-	printf("*(&((char *)&short_arrary[0])[7]) : %#x\n",		*(&((char *)&short_arrary[0])[7])); //out: ox66 
+	printf("((char*) short_arrary)[1] : %#x	%p\n",		((char*) short_arrary)[1], &((char*) short_arrary)[1]);	//out: ox0  (little endian) 
+	printf("((char*) short_arrary)[0] : %#x	%p\n",		((char*) short_arrary)[0], &((char*) short_arrary)[0]);	//out: ox11  (little endian) 
+	printf("*(&((char *)&short_arrary[0])[7]) : %#x\n",	*(&((char *)&short_arrary[0])[7])); 					//out: ox66 
 
 	return;
 }
