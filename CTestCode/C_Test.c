@@ -51,13 +51,13 @@ int main()
 //	Struct_Test();
 //	Array_Test();
 //	Sharp_Test();
-//	FormatEffector_Test();
+	FormatEffector_Test();
 //	Const_Test();
 	
 //	int * p_int_a;
 //	p_int_a = Return_P_Test();
 //	printf("*p_int_a = %d\n", *p_int_a);
-	ShortArrary_2_CharArrary(); 
+//	ShortArrary_2_CharArrary(); 
 //	Null_Test();
 
 //	Setjmp_Test();
@@ -206,6 +206,7 @@ void FormatEffector_Test(void)
 	int  	int_p  = 100;
 	char  	char_a1 = -4;
 	float 	f_a1 = 25.0;
+	int 	array[2] = {1, 2};
 	
 	int_a1 = 0b1111;		//2进制赋值 
 	int_a2 = 010; 			//8进制赋值 1
@@ -238,7 +239,10 @@ void FormatEffector_Test(void)
 
     printf("\n指针:%%p\n");
     printf("变量的地址 int_p 指针:%%p : %p\n",  int_p);	
-    printf("地址的地址&int_p 指针:%%p : %p\n", &int_p);	
+    printf("地址的地址&int_p 指针:%%p : %p\n", &int_p);
+    printf("地址的地址&int_p 指针:%%d : %X\n", &int_p);	
+	printf("地址的地址array  指针:%%p : %p\n", array);
+	printf("地址的地址array[0] 指针:%%p : %p\n", array[0]);
     
     printf("\n 无符号形式输出%%u : %u\n", char_a1);
 	printf("\n 制表\\t *\t* 响铃\\a \a  	回车\\r \r \n");
