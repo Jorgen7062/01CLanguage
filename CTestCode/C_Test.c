@@ -356,12 +356,12 @@ void ShortArrary_2_CharArrary(void)
 	short short_arrary[4] = {0x1011, 	0x2233, 	0x4455, 	0x6677};
 	char  char_arrary[4]  = {0xAA, 		0xBB,		0xCC};
 //	这种赋值方式不正确，之后执行到包含该指针的语句时，程序会断开
-//	char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};
+	char  * char_arrary_p = {0xAA, 		0xBB,		0xCC,	0xDD,	0x00};
 	char  * char_arrary_q;
 	int   * int_p;
 
 //	printf("sizeof char_arrary_p[0] = %d\n",	*char_arrary_p);	//不能通过这种方式来输出值
-//	printf("sizeof char_arrary_p[1] = %d\n",	char_arrary_p[1]);	//不能通过这种方式来输出值
+	printf("sizeof char_arrary_p[1] = %d\n",	char_arrary_p[1]);	//不能通过这种方式来输出值
 	
 	printf("sizeof short_arrary[4] = %d\n",	sizeof(short_arrary)); 	//out 8
 	printf("sizeof char_arrary[4]  = %d\n",	sizeof(char_arrary)); 	//out 4
