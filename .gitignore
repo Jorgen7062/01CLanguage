@@ -54,3 +54,5 @@ dkms.conf
 # add by myself  jorgen
 *.swp
 
+# patch
+*.patch
