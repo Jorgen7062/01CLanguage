@@ -43,6 +43,104 @@ void Null_Test(void);
 void Setjmp_Test(void);
 void Longjmp_Test(void); 
 
+#define TEST_MODE_Mask 0xe000
+#define TEST_MODE_1    0x2000
+#define TEST_MODE_2    0x4000
+#define TEST_MODE_slave_Jitter    0x6000
+#define TEST_MODE_4    0x8000
+#define TEST_MODE_5    0xa000
+
+int snprintf_test () {
+  char a[16] = {0};
+  char b[16] = {0, 'A', 102, 3, 0, 0, 0, 7, 8, 9, 10, 11, 12};
+  char * temp = a; 
+  char buf[16] = {0};
+  size_t i;
+
+//  i = snprintf(a, 13, "%012d", 12345);  // 第 1 种情况
+//  printf("i = %lu, a = %s\n", i, a);    // 输出：i = 12, a = 000000012345
+/*
+  i = snprintf(a, 9, "%012d", 12345);   // 第 2 种情况
+  printf("i = %lu, a = %s\n", i, a);    // 输出：i = 12, a = 00000001
+*/ 
+//    i = snprintf(a, 2, "%2d", b);   // 第 2 种情况
+//    printf("i = %d, a = %s\n", i, a);    // 输出：i = 12, a = 00000001
+    
+//    sprintf(buf, "%02x%02x%02x%02x%02x\n", temp[0], temp[1], temp[2], temp[3], temp[4]);
+//    printf("02x:buf = %s", buf);
+//    for(i = 0; i < 10; i++)
+//    {
+//        printf("%d ", buf[i]);
+//    }
+//    printf("\n\n", buf[i]);
+//
+//    sprintf(buf, "%2x%2x%2x%2x%2x\n", temp[0], temp[1], temp[2], temp[3], temp[4]);
+//    printf("2x:buf = %s", buf);
+//    for(i = 0; i < 10; i++)
+//    {
+//        printf("%d ", buf[i]);
+//    }
+//    printf("\n\n", buf[i]);
+        
+    sprintf(buf, "%c%x%x%x%x\n", temp[0], temp[1], temp[2], temp[3], temp[4]);
+    printf("x:buf = %s\n", buf);
+    for(i = 0; i < 10; i++)
+    {
+        printf("%d ", buf[i]);
+    }
+    printf("\n\n", buf[i]);
+    
+  return 0;
+}
+
+int test_sangedian () {
+    int i = 6;
+    
+    switch (i)
+    {
+        case 2u:
+            {
+                printf("%d\n", i);
+                break;
+            }
+        case 1u:
+            {
+                printf("%d\n", i);
+                break;
+            }
+        case 0u:
+            {
+                printf("%d\n", i);
+                break;
+            }
+        case 4u ... 240u:
+            {
+                printf("... %d\n", i);
+                break;
+            }
+        default:
+                printf("%d\n", i);
+                break;
+    }
+}
+
+int strncmp_test(void)
+{
+    char *p="aBc";
+    char *q="Abc";
+    char *h="abc";
+    char qq[]={1,2,0,2,3};
+    char hh[]={1,2,2,1,4};
+
+    printf("strncmp(qq,hh,4):%d\n",strncmp(qq,hh,5));
+    //printf("strcmp(p,h):%d\n",strcmp(p,h));
+
+    return 0;
+    //结果：
+    //strcmp(p,q):32
+    //strcmp(p,h):-32
+}
+
 
 void Struct_Test(void)
 {
@@ -426,6 +524,9 @@ int main()
 //    Setjmp_Test();
 
 //    printf("Hello Word!\n");
+
+    // snprintf_test();
+    // test_sangedian ();
     printf("按回车键结束程序...\n");
     getchar();
 
