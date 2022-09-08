@@ -8,7 +8,7 @@
 #define hong_1  1
 
 #define Marco_parameter 2, 3
-/*¶à¸ö²ÎÊı¿ÉÒÔÓÃºêÀ´Ìæ´ú*/
+/*å¤šä¸ªå‚æ•°å¯ä»¥ç”¨å®æ¥æ›¿ä»£*/
 
 int add(int a, int b)
 {
@@ -40,7 +40,7 @@ int main()
 	printf("sum = %d\n\n",sum);
 	
 	
-	printf("°´»Ø³µ¼ü½áÊø³ÌĞò...\n");	
+	printf("æŒ‰å›è½¦é”®ç»“æŸç¨‹åº...\n");	
 	getchar();
 
 	return 0;

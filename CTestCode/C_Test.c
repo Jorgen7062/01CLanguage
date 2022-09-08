@@ -57,14 +57,14 @@ int snprintf_test () {
   char buf[16] = {0};
   size_t i;
 
-//  i = snprintf(a, 13, "%012d", 12345);  // µÚ 1 ÖÖÇé¿ö
-//  printf("i = %lu, a = %s\n", i, a);    // Êä³ö£ºi = 12, a = 000000012345
+//  i = snprintf(a, 13, "%012d", 12345);  // ç¬¬ 1 ç§æƒ…å†µ
+//  printf("i = %lu, a = %s\n", i, a);    // è¾“å‡ºï¼ši = 12, a = 000000012345
 /*
-  i = snprintf(a, 9, "%012d", 12345);   // µÚ 2 ÖÖÇé¿ö
-  printf("i = %lu, a = %s\n", i, a);    // Êä³ö£ºi = 12, a = 00000001
+  i = snprintf(a, 9, "%012d", 12345);   // ç¬¬ 2 ç§æƒ…å†µ
+  printf("i = %lu, a = %s\n", i, a);    // è¾“å‡ºï¼ši = 12, a = 00000001
 */ 
-//    i = snprintf(a, 2, "%2d", b);   // µÚ 2 ÖÖÇé¿ö
-//    printf("i = %d, a = %s\n", i, a);    // Êä³ö£ºi = 12, a = 00000001
+//    i = snprintf(a, 2, "%2d", b);   // ç¬¬ 2 ç§æƒ…å†µ
+//    printf("i = %d, a = %s\n", i, a);    // è¾“å‡ºï¼ši = 12, a = 00000001
     
 //    sprintf(buf, "%02x%02x%02x%02x%02x\n", temp[0], temp[1], temp[2], temp[3], temp[4]);
 //    printf("02x:buf = %s", buf);
@@ -136,7 +136,7 @@ int strncmp_test(void)
     //printf("strcmp(p,h):%d\n",strcmp(p,h));
 
     return 0;
-    //½á¹û£º
+    //ç»“æœï¼š
     //strcmp(p,q):32
     //strcmp(p,h):-32
 }
@@ -228,11 +228,11 @@ void Const_Test(void)
 }
 
 /*****************************************    
-Ã¶¾ÙÀàĞÍ³ÉÔ±±äÁ¿ µÄÖµÔÚ Ô¤±àÒë½×¶Î ÎŞĞ§
+æšä¸¾ç±»å‹æˆå‘˜å˜é‡ çš„å€¼åœ¨ é¢„ç¼–è¯‘é˜¶æ®µ æ— æ•ˆ
 
-ºê¶¨Òå£ºÔ¤±àÒë½×¶Î£¬»¹²»ÄÜ¼ì²âÃ¶¾Ù³ÉÔ±ÀàĞÍµÄÖµ 
+å®å®šä¹‰ï¼šé¢„ç¼–è¯‘é˜¶æ®µï¼Œè¿˜ä¸èƒ½æ£€æµ‹æšä¸¾æˆå‘˜ç±»å‹çš„å€¼ 
 
-Ã¶¾ÙÀàĞÍ£º±àÒë½×¶Î            
+æšä¸¾ç±»å‹ï¼šç¼–è¯‘é˜¶æ®µ            
 ******************************************/
 void Macro_vs_Enum(void)
 {
@@ -279,53 +279,53 @@ void FormatEffector_Test(void)
     float     f_a1 = 25.0;
     int     array[2] = {1, 2};
     
-    int_a1 = 0b1111;        //2½øÖÆ¸³Öµ 
-    int_a2 = 010;             //8½øÖÆ¸³Öµ 1
-//    int_a2 = '\123';         //8½øÖÆ¸³Öµ 2   123 = 83 (8 + 2*8 + 3 = 83)
-    int_a3 = 0x11;            //16½øÖÆ¸³Öµ
+    int_a1 = 0b1111;        //2è¿›åˆ¶èµ‹å€¼ 
+    int_a2 = 010;             //8è¿›åˆ¶èµ‹å€¼ 1
+//    int_a2 = '\123';         //8è¿›åˆ¶èµ‹å€¼ 2   123 = 83 (8 + 2*8 + 3 = 83)
+    int_a3 = 0x11;            //16è¿›åˆ¶èµ‹å€¼
     
-    printf("ÕâÊÇ¶ş½øÖÆ 0b101 ÓÃÊ®½øÖÆ±íÊ¾µÄÊıÖµ:%d\n",int_a1);
-    printf("ÕâÊÇ°Ë½øÖÆ 010 ÓÃÊ®½øÖÆ±íÊ¾µÄÊıÖµ:%d\n",int_a2);
-    printf("ÕâÊÇÊ®Áù½øÖÆ 0x11 ÓÃÊ®½øÖÆ±íÊ¾µÄÊıÖµ:%d\n",int_a3);
+    printf("è¿™æ˜¯äºŒè¿›åˆ¶ 0b101 ç”¨åè¿›åˆ¶è¡¨ç¤ºçš„æ•°å€¼:%d\n",int_a1);
+    printf("è¿™æ˜¯å…«è¿›åˆ¶ 010 ç”¨åè¿›åˆ¶è¡¨ç¤ºçš„æ•°å€¼:%d\n",int_a2);
+    printf("è¿™æ˜¯åå…­è¿›åˆ¶ 0x11 ç”¨åè¿›åˆ¶è¡¨ç¤ºçš„æ•°å€¼:%d\n",int_a3);
     
-    printf("\n £¨int_b1=int_b2£©Êä³öint_b2µÄÖµ£º  %d \n", int_b1 = int_b2);
+    printf("\n ï¼ˆint_b1=int_b2ï¼‰è¾“å‡ºint_b2çš„å€¼ï¼š  %d \n", int_b1 = int_b2);
         
-    printf("\n8½øÖÆ¸ñÊ½¿ØÖÆ·û\n");    
-    printf("°Ë½øÖÆÕûÊıÇ°²»¼Ó0 %%o %o\n", 123);
-    printf("°Ë½øÖÆÕûÊıÇ°¼ÓÉÏ0 %%#o %#o\n", 123);
+    printf("\n8è¿›åˆ¶æ ¼å¼æ§åˆ¶ç¬¦\n");    
+    printf("å…«è¿›åˆ¶æ•´æ•°å‰ä¸åŠ 0 %%o %o\n", 123);
+    printf("å…«è¿›åˆ¶æ•´æ•°å‰åŠ ä¸Š0 %%#o %#o\n", 123);
 
-    printf("\n16½øÖÆ¸ñÊ½¿ØÖÆ·û\n");
-    printf("%%x£º%x\n",int_a1);
-    printf("%%X£º%X\n",int_a1);
-    printf("%%#x£º%#x\n",int_a1);
-    printf("%%#X£º%#X\n",int_a1);
+    printf("\n16è¿›åˆ¶æ ¼å¼æ§åˆ¶ç¬¦\n");
+    printf("%%xï¼š%x\n",int_a1);
+    printf("%%Xï¼š%X\n",int_a1);
+    printf("%%#xï¼š%#x\n",int_a1);
+    printf("%%#Xï¼š%#X\n",int_a1);
 
-    printf("\n¸¡µãÊı¸ñÊ½¿ØÖÆ·û\n");
+    printf("\næµ®ç‚¹æ•°æ ¼å¼æ§åˆ¶ç¬¦\n");
     printf("%%f:%f\n",f_a1);
-    printf("²»ÏÔÊ¾²»±ØÒªµÄ 0 %%g:%g\n",f_a1);
+    printf("ä¸æ˜¾ç¤ºä¸å¿…è¦çš„ 0 %%g:%g\n",f_a1);
     printf("%%#f:%#f\n",f_a1);
     printf("%%#g:%#g\n",f_a1);
-    printf("%%x.yf  xÎ»ÕûÊı  yÎ»Ğ¡Êı %2.2f\n", 1.08);
-    printf("¸¡µãÊıÒ»¶¨Ê¹ÓÃĞ¡Êıµã%%#.0f  %#.0f\n", 1.08);
+    printf("%%x.yf  xä½æ•´æ•°  yä½å°æ•° %2.2f\n", 1.08);
+    printf("æµ®ç‚¹æ•°ä¸€å®šä½¿ç”¨å°æ•°ç‚¹%%#.0f  %#.0f\n", 1.08);
 
-    printf("\nÖ¸Õë:%%p\n");
-    printf("±äÁ¿µÄµØÖ· int_p Ö¸Õë:%%p : %p\n",  int_p);
-    printf("µØÖ·µÄµØÖ·&int_p Ö¸Õë:%%p : %p\n", &int_p);
-    printf("µØÖ·µÄµØÖ·&int_p Ö¸Õë:%%d : %X\n", &int_p);
-    printf("µØÖ·µÄµØÖ·array  Ö¸Õë:%%p : %p\n", array);
-    printf("µØÖ·µÄµØÖ·array[0] Ö¸Õë:%%p : %p\n", array[0]);
+    printf("\næŒ‡é’ˆ:%%p\n");
+    printf("å˜é‡çš„åœ°å€ int_p æŒ‡é’ˆ:%%p : %p\n",  int_p);
+    printf("åœ°å€çš„åœ°å€&int_p æŒ‡é’ˆ:%%p : %p\n", &int_p);
+    printf("åœ°å€çš„åœ°å€&int_p æŒ‡é’ˆ:%%d : %X\n", &int_p);
+    printf("åœ°å€çš„åœ°å€array  æŒ‡é’ˆ:%%p : %p\n", array);
+    printf("åœ°å€çš„åœ°å€array[0] æŒ‡é’ˆ:%%p : %p\n", array[0]);
     
-    printf("\n ÎŞ·ûºÅĞÎÊ½Êä³ö%%u : %u\n", char_a1);
-    printf("\n ÖÆ±í\\t *\t* ÏìÁå\\a \a      »Ø³µ\\r \r \n");
-    printf("\n °Ù·ÖºÅ%%%% : %%\n");
-    printf("\n ×Ö·û0x33 %%c: %c\n", 0x33);
-    printf("\n ×Ö·û´®:%%s %s\n", "hello");
+    printf("\n æ— ç¬¦å·å½¢å¼è¾“å‡º%%u : %u\n", char_a1);
+    printf("\n åˆ¶è¡¨\\t *\t* å“é“ƒ\\a \a      å›è½¦\\r \r \n");
+    printf("\n ç™¾åˆ†å·%%%% : %%\n");
+    printf("\n å­—ç¬¦0x33 %%c: %c\n", 0x33);
+    printf("\n å­—ç¬¦ä¸²:%%s %s\n", "hello");
 
     return;
 }
 
 /*
-²¹Âë ·´Âë Ô­Âë 
+è¡¥ç  åç  åŸç  
 */
 void ComplementalCode_Test(void)
 {
@@ -351,7 +351,7 @@ void ComplementalCode_Test(void)
 
 #define f(x,y) x##y
 #define g(a) #a
-#define h(a) g(a)  /*´Ëºê¶¨ÒåÖĞ£¬ÎŞ¡°# ¡±ÔËËã·ûÔÚÆäÖĞ£¬¹Ê  h(    f(1,2)    ) ÖĞ£¬f(1,2)ÏÈÖ´ĞĞ£¬Ö®ºóÔÙÖ´ĞĞÆäÔËËã½á¹û  #12*/ 
+#define h(a) g(a)  /*æ­¤å®å®šä¹‰ä¸­ï¼Œæ— â€œ# â€è¿ç®—ç¬¦åœ¨å…¶ä¸­ï¼Œæ•…  h(    f(1,2)    ) ä¸­ï¼Œf(1,2)å…ˆæ‰§è¡Œï¼Œä¹‹åå†æ‰§è¡Œå…¶è¿ç®—ç»“æœ  #12*/ 
 
 void Sharp_Test(void)
 {
@@ -370,12 +370,12 @@ void Sharp_Test(void)
     printf("%s\n", g(  ( f(1,2) )  )    );      //#( f(1,2) )    
     printf("%s\n", h(    f(1,2)    )    );      //1##2         -->     #(1##2)
     
-//    printf("%s:%d\n",#a,a); //·Ç·¨ 
-//    printf("%s\n", #a);        //·Ç·¨
+//    printf("%s:%d\n",#a,a); //éæ³• 
+//    printf("%s\n", #a);        //éæ³•
 //    system("pause");
 }
 
-/*º¯Êı¾Ö²¿±äÁ¿·µ»Ø²âÊÔ  ¾Ö²¿±äÁ¿  VS ¾Ö²¿±äÁ¿Ö¸Õë*/ 
+/*å‡½æ•°å±€éƒ¨å˜é‡è¿”å›æµ‹è¯•  å±€éƒ¨å˜é‡  VS å±€éƒ¨å˜é‡æŒ‡é’ˆ*/ 
 int * Return_P_Test(void)
 {    
     int int_a = 2020;
@@ -383,8 +383,8 @@ int * Return_P_Test(void)
 
     int_ap = &int_a;
 
-    printf("¿ÉÒÔÍ¨¹ı *Ö¸Õë±äÁ¿* ·µ»Ø *¾Ö²¿±äÁ¿* µÄµØÖ·\n");
-    printf("²»¿ÉÒÔÖ±½Ó·µ»Ø *¾Ö²¿±äÁ¿* &£¨±äÁ¿£© µÄµØÖ·\n");
+    printf("å¯ä»¥é€šè¿‡ *æŒ‡é’ˆå˜é‡* è¿”å› *å±€éƒ¨å˜é‡* çš„åœ°å€\n");
+    printf("ä¸å¯ä»¥ç›´æ¥è¿”å› *å±€éƒ¨å˜é‡* &ï¼ˆå˜é‡ï¼‰ çš„åœ°å€\n");
     //return int_a;
     //return int_ap;
     //return &int_a;
@@ -416,7 +416,7 @@ void DataType_Conversion(void)
 
 
 /*Tips
-string.h(C)»òcstring(C++) ¸ø¶¨×Ö·û´®£¨²»°üÀ¨¡°\0¡±£©³¤¶È
+string.h(C)æˆ–cstring(C++) ç»™å®šå­—ç¬¦ä¸²ï¼ˆä¸åŒ…æ‹¬â€œ\0â€ï¼‰é•¿åº¦
 size_t strlen(const char *string);
 
 strlen VS sizeof
@@ -426,13 +426,13 @@ void ShortArrary_2_CharArrary(void)
 {
     short short_arrary[4] = {0x1011,     0x2233,     0x4455,     0x6677};
     char  char_arrary[4]  = {0xAA,         0xBB,        0xCC};
-//    ÕâÖÖ¸³Öµ·½Ê½²»ÕıÈ·£¬Ö®ºóÖ´ĞĞµ½°üº¬¸ÃÖ¸ÕëµÄÓï¾äÊ±£¬³ÌĞò»á¶Ï¿ª
+//    è¿™ç§èµ‹å€¼æ–¹å¼ä¸æ­£ç¡®ï¼Œä¹‹åæ‰§è¡Œåˆ°åŒ…å«è¯¥æŒ‡é’ˆçš„è¯­å¥æ—¶ï¼Œç¨‹åºä¼šæ–­å¼€
     char  * char_arrary_p = {0xAA,         0xBB,        0xCC,    0xDD,    0x00};
     char  * char_arrary_q;
     int   * int_p;
 
-//    printf("sizeof char_arrary_p[0] = %d\n",    *char_arrary_p);    //²»ÄÜÍ¨¹ıÕâÖÖ·½Ê½À´Êä³öÖµ
-    printf("sizeof char_arrary_p[1] = %d\n",    char_arrary_p[1]);    //²»ÄÜÍ¨¹ıÕâÖÖ·½Ê½À´Êä³öÖµ
+//    printf("sizeof char_arrary_p[0] = %d\n",    *char_arrary_p);    //ä¸èƒ½é€šè¿‡è¿™ç§æ–¹å¼æ¥è¾“å‡ºå€¼
+    printf("sizeof char_arrary_p[1] = %d\n",    char_arrary_p[1]);    //ä¸èƒ½é€šè¿‡è¿™ç§æ–¹å¼æ¥è¾“å‡ºå€¼
 
     printf("sizeof short_arrary[4] = %d\n",    sizeof(short_arrary));     //out 8
     printf("sizeof char_arrary[4]  = %d\n",    sizeof(char_arrary));     //out 4
@@ -440,12 +440,12 @@ void ShortArrary_2_CharArrary(void)
     printf("sizeof char_arrary_q   = %d\n",    sizeof(char_arrary_q)); //out 8
     printf("sizeof int_p   = %d\n",            sizeof(int_p));         //out 8
     printf("\n");
-    printf("strlenÒÔ\\0Ö®Ç°µÄ×Ö½ÚÊı\n");
-    printf("strlen short_arrary[4] = %d\n",    strlen(short_arrary));    //´Ë´¦ÓĞ¾¯¸æ size_t strlen(const char *string);
+    printf("strlenä»¥\\0ä¹‹å‰çš„å­—èŠ‚æ•°\n");
+    printf("strlen short_arrary[4] = %d\n",    strlen(short_arrary));    //æ­¤å¤„æœ‰è­¦å‘Š size_t strlen(const char *string);
     printf("strlen char_arrary[4]  = %d\n",    strlen(char_arrary));    //out 3
 //    printf("strlen char_arrary_p   = %d\n",    strlen(char_arrary_p));    //out 3
-//    printf("strlen char_arrary_q   = %d\n",    strlen(char_arrary_q));    //¸ÃÓï¾äÖĞ¶ÏÒÔÏÂ³ÌĞòµÄÖ´ĞĞ 
-//    printf("strlen int_p              = %d\n",    strlen(int_p));            //¸ÃÓï¾äÖĞ¶ÏÒÔÏÂ³ÌĞòµÄÖ´ĞĞ    ´Ë´¦ÓĞ¾¯¸æ size_t strlen(const char *string);
+//    printf("strlen char_arrary_q   = %d\n",    strlen(char_arrary_q));    //è¯¥è¯­å¥ä¸­æ–­ä»¥ä¸‹ç¨‹åºçš„æ‰§è¡Œ 
+//    printf("strlen int_p              = %d\n",    strlen(int_p));            //è¯¥è¯­å¥ä¸­æ–­ä»¥ä¸‹ç¨‹åºçš„æ‰§è¡Œ    æ­¤å¤„æœ‰è­¦å‘Š size_t strlen(const char *string);
     printf("\n");
     printf("((char*) short_arrary)[1] : %#x    %p\n",        ((char*) short_arrary)[1], &((char*) short_arrary)[1]);    //out: ox0  (little endian) 
     printf("((char*) short_arrary)[0] : %#x    %p\n",        ((char*) short_arrary)[0], &((char*) short_arrary)[0]);    //out: ox11  (little endian) 
@@ -459,11 +459,11 @@ void Null_Test(void)
     char *p = NULL;
     char char_temp; 
     
-    char_temp = *p;                             //¶Ô0µØÖ·Ö±½Ó¶ÁÈ¡Êı¾İÖĞ¶ÏÁËµ±Ç°³ÌĞòµÄÖ´ĞĞ 
+    char_temp = *p;                             //å¯¹0åœ°å€ç›´æ¥è¯»å–æ•°æ®ä¸­æ–­äº†å½“å‰ç¨‹åºçš„æ‰§è¡Œ 
     
-    printf("±äÁ¿µÄµØÖ· p Ö¸Õë:%%p : %p\n",  p);
+    printf("å˜é‡çš„åœ°å€ p æŒ‡é’ˆ:%%p : %p\n",  p);
     
-    printf("Location 0 contains %d\n", *p);        //Ã»ÓĞ´òÓ¡¸ÃµØÖ·µÄÊı¾İ 
+    printf("Location 0 contains %d\n", *p);        //æ²¡æœ‰æ‰“å°è¯¥åœ°å€çš„æ•°æ® 
     
     printf("char_temp = *p; %d\n", char_temp);
     
@@ -472,7 +472,7 @@ void Null_Test(void)
 
 void Setjmp_Test(void)
 {
-    switch(setjmp(jmp_buf_a0))    /*setjmp(jmp_buf_a0) Ö´ĞĞºó£¬·µ»ØÖµÎª 0 */
+    switch(setjmp(jmp_buf_a0))    /*setjmp(jmp_buf_a0) æ‰§è¡Œåï¼Œè¿”å›å€¼ä¸º 0 */
     {
         case 0:
             printf("in Setjmp_Test(void)  setjmp(jmp_buf_a0) == 0;\n");
@@ -499,9 +499,9 @@ void Longjmp_Test(void)
 {
     printf("in Longjmp_Test(void) Before longjmp(jmp_buf_a0, 1);\n");
     
-    longjmp(jmp_buf_a0, 2);    /*²ÎÊıx Îªlongjmp(jmp_buf_a0, x); ·µ»Ø²ÎÊı     ·µ»Ø setjmp(jmp_buf_a0) ´¦*/
+    longjmp(jmp_buf_a0, 2);    /*å‚æ•°x ä¸ºlongjmp(jmp_buf_a0, x); è¿”å›å‚æ•°     è¿”å› setjmp(jmp_buf_a0) å¤„*/
     
-    printf("in Longjmp_Test(void) After longjmp(jmp_buf_a0, 1);\n");    /*¸ÃĞĞ²»»á±»Ö´ĞĞ*/
+    printf("in Longjmp_Test(void) After longjmp(jmp_buf_a0, 1);\n");    /*è¯¥è¡Œä¸ä¼šè¢«æ‰§è¡Œ*/
 
     return;
 }
@@ -527,7 +527,7 @@ int main()
 
     // snprintf_test();
     // test_sangedian ();
-    printf("°´»Ø³µ¼ü½áÊø³ÌĞò...\n");
+    printf("æŒ‰å›è½¦é”®ç»“æŸç¨‹åº...\n");
     getchar();
 
     return 0;

@@ -32,13 +32,13 @@ void main(void)
 	p->a[1]=0x38;
 	if(checkSystem())
 	{
-		printf("计算机是-小-端模式\n");   
+		printf("璁＄畻鏈烘槸灏忕妯″紡\n");   
 	}else{
-		printf("计算机是-大-端模式\n");
+		printf("璁＄畻鏈烘槸澶х妯″紡\n\n");
 	}
 	printf("p->i=0x%X\n",p->i);
 	
 	printf("%d\n",sizeof(type_a));
 	
-	printf("指针的数值%d, 指针指向的存储区域的值%d\n",*(&a+1-1),*(ptr-1));
+	printf("*(&a+1-1) = %d, *(ptr-1) = %d\n",*(&a+1-1),*(ptr-1));
 }

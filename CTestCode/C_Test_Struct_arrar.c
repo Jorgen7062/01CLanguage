@@ -1,5 +1,5 @@
 /*Head File*/
-/*²âÊÔ½á¹¹ÌåÇ¶Ì×¶¨Òåºó£¬ÊıÖµ¸³ÖµË³Ñ°*/
+/*æµ‹è¯•ç»“æ„ä½“åµŒå¥—å®šä¹‰åï¼Œæ•°å€¼èµ‹å€¼é¡ºå¯»*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -58,7 +58,7 @@ int main()
 	
 	printf("\n");
 	
-	printf("°´»Ø³µ¼ü½áÊø³ÌĞò...\n");	
+	printf("æŒ‰å›è½¦é”®ç»“æŸç¨‹åº...\n");	
 	getchar();
 
 	return 0;

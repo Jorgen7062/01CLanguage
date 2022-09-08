@@ -1,4 +1,4 @@
-/*À´Ô´£ºhttps://www.runoob.com/cprogramming/c-variable-arguments.html*/
+/*æ¥æºï¼šhttps://www.runoob.com/cprogramming/c-variable-arguments.html*/
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -10,15 +10,15 @@ double average(int num,...)
     double sum = 0.0;
     int i;
  
-    /* Îª num ¸ö²ÎÊı³õÊ¼»¯ valist */
+    /* ä¸º num ä¸ªå‚æ•°åˆå§‹åŒ– valist */
     va_start(valist, num);
  
-    /* ·ÃÎÊËùÓĞ¸³¸ø valist µÄ²ÎÊı */
+    /* è®¿é—®æ‰€æœ‰èµ‹ç»™ valist çš„å‚æ•° */
     for (i = 0; i < num; i++)
     {
        sum += va_arg(valist, int);
     }
-    /* ÇåÀíÎª valist ±£ÁôµÄÄÚ´æ */
+    /* æ¸…ç†ä¸º valist ä¿ç•™çš„å†…å­˜ */
     va_end(valist);
  
     return sum/num;

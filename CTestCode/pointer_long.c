@@ -1,8 +1,8 @@
 /*
-±³¾°£ºFreeRTOS  ÖĞÎÄÊÖ²áP55 Ö¸Õë±äÁ¿µÄÖµ Ç¿×ªµ½ long£¬Ö®ºóÔÙÈ¡longµÄÖµµÄµØÖ· 
-ÑéÖ¤£ºÕâÖÖÓÃ·¨ÊÇ·ñ¿ÉĞĞ
-½áÂÛ£º×ÜÌåĞ§¹ûÊÇ¿ÉÒÔ°Ñ´«½øÀ´µÄµØÖ·±¾ÉíµÄÖµ´æÈë¶ÓÁĞ
-	  Èç¹û´«½øÀ´µÄÖµÊÇÕûĞÍÀàĞÍ£¬¸ÃÊıÖµÓ¦¸ÃÒ²¿ÉÒÔ´«½øÀ´£¨´ı²âÊÔ£© 
+èƒŒæ™¯ï¼šFreeRTOS  ä¸­æ–‡æ‰‹å†ŒP55 æŒ‡é’ˆå˜é‡çš„å€¼ å¼ºè½¬åˆ° longï¼Œä¹‹åå†å–longçš„å€¼çš„åœ°å€ 
+éªŒè¯ï¼šè¿™ç§ç”¨æ³•æ˜¯å¦å¯è¡Œ
+ç»“è®ºï¼šæ€»ä½“æ•ˆæœæ˜¯å¯ä»¥æŠŠä¼ è¿›æ¥çš„åœ°å€æœ¬èº«çš„å€¼å­˜å…¥é˜Ÿåˆ—
+	  å¦‚æœä¼ è¿›æ¥çš„å€¼æ˜¯æ•´å‹ç±»å‹ï¼Œè¯¥æ•°å€¼åº”è¯¥ä¹Ÿå¯ä»¥ä¼ è¿›æ¥ï¼ˆå¾…æµ‹è¯•ï¼‰ 
 */
 #include <stdio.h>
 
@@ -12,13 +12,13 @@ void vCTest_pointer_int(int *p_int)
 	
 	long_test =  (long) p_int;
 	
-	printf("\n±»µ÷ÓÃº¯Êı\n");
-	printf("Ö¸ÕëµØÖ·p:p_int = %p\n",p_int);
-	printf("Ö¸ÕëÊıÖµd:p_int = %d\n",(*p_int));
+	printf("\nè¢«è°ƒç”¨å‡½æ•°\n");
+	printf("æŒ‡é’ˆåœ°å€p:p_int = %p\n",p_int);
+	printf("æŒ‡é’ˆæ•°å€¼d:p_int = %d\n",(*p_int));
 	printf("\n");	
-	printf("longµØÖ·: long_test = %p\n",long_test);
-	printf("longÊıÖµ£ºlong_test = %X\n",long_test);
-	printf("longÊıÖµ£ºlong_test = %d\n",*(int *)long_test);	
+	printf("longåœ°å€: long_test = %p\n",long_test);
+	printf("longæ•°å€¼ï¼šlong_test = %X\n",long_test);
+	printf("longæ•°å€¼ï¼šlong_test = %d\n",*(int *)long_test);	
 	printf("\n");		
 	
 	return;
@@ -38,15 +38,15 @@ int main()
 	printf("sizeof(long_test)	= %d\n",sizeof(long_test));	
 	printf("sizeof(p_int) 		= %d\n",sizeof(p_int));
 	/**/
-	printf("Ö÷³ÌĞò£ºµØÖ·p:int_test = %p\n",&int_test);
-	printf("Ö÷³ÌĞò£ºÊıÖµd:int_test = %d\n",int_test);	
+	printf("ä¸»ç¨‹åºï¼šåœ°å€p:int_test = %p\n",&int_test);
+	printf("ä¸»ç¨‹åºï¼šæ•°å€¼d:int_test = %d\n",int_test);	
 	
-	printf("Ö÷³ÌĞò£ºÖ¸ÕëµØÖ·p:p_int = %p\n",p_int);
-	printf("Ö÷³ÌĞò£ºÖ¸ÕëÊıÖµd:p_int = %d\n",(*p_int));
+	printf("ä¸»ç¨‹åºï¼šæŒ‡é’ˆåœ°å€p:p_int = %p\n",p_int);
+	printf("ä¸»ç¨‹åºï¼šæŒ‡é’ˆæ•°å€¼d:p_int = %d\n",(*p_int));
 	
 	vCTest_pointer_int(p_int);
 	
-	printf("°´»Ø³µ¼ü½áÊø³ÌĞò...\n");
+	printf("æŒ‰å›è½¦é”®ç»“æŸç¨‹åº...\n");
 	getchar();
 
 	return 0;

@@ -19,7 +19,7 @@ int main()
 	printf("hong_1\n");
 	
 #endif	
-	printf("按回车键结束程序...\n");	
+	printf("???????????????...\n");	
 	getchar();
 
 	return 0;

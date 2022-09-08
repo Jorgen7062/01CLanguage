@@ -71,7 +71,7 @@ int main()
 	printf("struct_test_st_arrary[1].char_d = %d\n", struct_test_st_arrary[1].char_d);	
 */	
 
-	printf("按回车键结束程序...\n");	
+	printf("按回车键结束程序...\n\n");	
 	getchar();
 
 	return 0;
