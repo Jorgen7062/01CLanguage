@@ -93,35 +93,46 @@ int snprintf_test () {
   return 0;
 }
 
-int test_sangedian () {
-    int i = 6;
+int test_three_point () {
+    int status_id = 6;
     
-    switch (i)
+    switch (status_id)
     {
         case 2u:
             {
-                printf("%d\n", i);
+                printf("%d\n", status_id);
                 break;
             }
         case 1u:
             {
-                printf("%d\n", i);
+                printf("%d\n", status_id);
                 break;
             }
         case 0u:
             {
-                printf("%d\n", i);
+                printf("%d\n", status_id);
                 break;
             }
         case 4u ... 240u:
             {
-                printf("... %d\n", i);
+                printf("... %d\n", status_id);
                 break;
             }
         default:
-                printf("%d\n", i);
+                printf("%d\n", status_id);
                 break;
     }
+//数组批量赋相同值
+    int table[7]={
+    [3 ... 6]=7,
+    [2] = 10
+    };
+    int i = 0;
+    for(i=0;i<7;i++)
+    {
+        printf("\ntable[%d]=%d\n",i,table[i]);
+    }
+
 }
 
 int strncmp_test(void)
@@ -512,7 +523,7 @@ int main()
 //    Struct_Test();
 //    Array_Test();
 //    Sharp_Test();
-    FormatEffector_Test();
+//    FormatEffector_Test();
 //    Const_Test();
     
 //    int * p_int_a;
@@ -525,8 +536,8 @@ int main()
 
 //    printf("Hello Word!\n");
 
-    // snprintf_test();
-    // test_sangedian ();
+//     snprintf_test();
+//     test_three_point();
     printf("按回车键结束程序...\n");
     getchar();
 
